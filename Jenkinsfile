@@ -24,7 +24,7 @@ pipeline {
            steps {
               
                 bat 'docker build -t spring-jenkins-docker-app .' 
-                bat 'docker tag spring-boot-actuator 21041993/spring-jenkins-docker-app:1.0.1'
+                bat 'docker tag spring-boot-actuator 31393/spring-jenkins-docker-app:1.0.1'
                
           }
         }
