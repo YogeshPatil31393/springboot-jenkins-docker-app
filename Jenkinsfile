@@ -5,7 +5,13 @@ pipeline {
    
    stages {
       
-	
+	stage('checkout') {
+           steps {
+             
+                git branch: 'master', url: 'https://github.com/YogeshPatil31393/springboot-jenkins-docker-app.git'
+             
+          }
+        }
 	
 	stage('test & package') {
            steps {
