@@ -13,7 +13,7 @@ pipeline {
 	stage('test & package') {
            steps {
              
-                bat 'mvn install'             
+                bat 'mvn test'             
           }
         }
         
