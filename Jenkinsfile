@@ -18,13 +18,19 @@ pipeline {
           }
         }
 	
-	stage('test & package') {
+	stage('test') {
            steps {
              
                 bat 'mvn test'             
           }
         }
         
+        stage('package') {
+           steps {
+             
+                bat 'mvn package'             
+          }
+        }
 
        stage('Build image and tag') {
            steps {
