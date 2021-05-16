@@ -28,7 +28,7 @@ pipeline {
                
           }
         }
-     
+      
         stage('Publish image') {
           
             steps {
