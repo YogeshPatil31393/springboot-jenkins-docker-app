@@ -9,17 +9,11 @@ pipeline {
    stages {
       
 	
-	stage('tests') {
+	
+	stage('test & package') {
            steps {
              
-                bat 'mvn test'             
-          }
-        }	
-
-	stage('packaging') {
-           steps {
-             
-                bat 'mvn package'             
+                bat 'mvn install'             
           }
         }
         
