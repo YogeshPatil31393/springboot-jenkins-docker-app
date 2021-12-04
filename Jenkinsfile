@@ -21,22 +21,22 @@ pipeline {
 	stage('test') {
            steps {
              
-                bat 'mvn test'             
+                bash 'mvn test'             
           }
         }
         
         stage('package') {
            steps {
              
-                bat 'mvn package'             
+                bash 'mvn package'             
           }
         }
 
        stage('Build image and tag') {
            steps {
               
-                bat 'docker build -t spring-jenkins-docker-app .' 
-                bat 'docker tag spring-jenkins-docker-app 31393/spring-jenkins-docker-app:1.0.1'
+                bash 'docker build -t spring-jenkins-docker-app .' 
+                bash 'docker tag spring-jenkins-docker-app 31393/spring-jenkins-docker-app:1.0.1'
                
           }
         }
@@ -45,7 +45,7 @@ pipeline {
           
             steps {
         withDockerRegistry([ credentialsId: "Docker-Credentials", url: "" ]) {
-              bat 'docker push 31393/spring-jenkins-docker-app:1.0.1'
+              bash 'docker push 31393/spring-jenkins-docker-app:1.0.1'
         }
                   
           }
@@ -54,7 +54,7 @@ pipeline {
         stage('Run Docker container on Jenkins Agent') {
              
             steps {
-                bat "docker run -d -p 8003:8080 31393/spring-jenkins-docker-app:1.0.1"
+                bash "docker run -d -p 8003:8080 31393/spring-jenkins-docker-app:1.0.1"
  
             }
         }
